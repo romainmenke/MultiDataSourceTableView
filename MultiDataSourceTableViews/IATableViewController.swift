@@ -15,7 +15,7 @@ class IATableViewController: UITableViewController {
     private var adapters : [[cellAdapter]] = []
     
     private struct cellAdapter {
-        var dataCell : Bool = true
+        var isDataCell : Bool = true
         var indexPath : NSIndexPath = NSIndexPath()
     }
     
@@ -28,7 +28,7 @@ class IATableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func cellIdentifier(tableView: UITableView, indexPath : NSIndexPath) -> String {
+    func cellIdentifier(tableView: UITableView, isDataCell: Bool) -> String {
         return "Cell"
     }
     
@@ -67,7 +67,7 @@ class IATableViewController: UITableViewController {
         for row in 0..<rows {
             var adapter = cellAdapter()
             adapter.indexPath = NSIndexPath(forRow: row, inSection: section)
-            adapter.dataCell = true
+            adapter.isDataCell = true
             adapters[section].append(adapter)
         }
         
@@ -97,7 +97,7 @@ class IATableViewController: UITableViewController {
                 for _ in 0..<insertionTimes {
                     var adapter = cellAdapter()
                     adapter.indexPath = NSIndexPath(forRow: counter, inSection: section)
-                    adapter.dataCell = false
+                    adapter.isDataCell = false
                     insertionArray.append(adapter)
                     counter += 1
                 }
@@ -133,14 +133,12 @@ class IATableViewController: UITableViewController {
     
     internal override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let identifier = cellIdentifier(tableView, indexPath: indexPath)
-        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
-        
-        // Configure the cell...
-        
         let adapter = adapters[indexPath.section][indexPath.row]
         
-        switch adapter.dataCell {
+        let identifier = cellIdentifier(tableView, isDataCell: adapter.isDataCell)
+        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
+        
+        switch adapter.isDataCell {
         case true :
             return dataCellForRowAtIndexPath(tableView, cell: cell, indexPath: adapter.indexPath)
         case false :

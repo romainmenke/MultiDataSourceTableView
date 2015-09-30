@@ -25,8 +25,13 @@ class InsertViewController: IATableViewController {
         return true
     }
     
-    override func cellIdentifier(tableView: UITableView, indexPath: NSIndexPath) -> String {
-        return "Cell"
+    override func cellIdentifier(tableView: UITableView, isDataCell:Bool) -> String {
+        switch isDataCell {
+        case true :
+            return "DataCell"
+        case false :
+            return "InsertCell"
+        }
     }
     
     override func numberOfSections(tableView: UITableView) -> Int {
