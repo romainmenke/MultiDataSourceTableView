@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		055A30341BBC615E00155B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A30331BBC615E00155B54 /* AppDelegate.swift */; };
-		055A30361BBC615E00155B54 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A30351BBC615E00155B54 /* FirstViewController.swift */; };
-		055A30381BBC615E00155B54 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A30371BBC615E00155B54 /* SecondViewController.swift */; };
 		055A303B1BBC615E00155B54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 055A30391BBC615E00155B54 /* Main.storyboard */; };
 		055A303D1BBC615E00155B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 055A303C1BBC615E00155B54 /* Assets.xcassets */; };
 		055A30401BBC615E00155B54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 055A303E1BBC615E00155B54 /* LaunchScreen.storyboard */; };
+		055A30491BBC61DD00155B54 /* IATableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A30481BBC61DD00155B54 /* IATableViewController.swift */; };
+		055A304B1BBC61EC00155B54 /* SSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A304A1BBC61EC00155B54 /* SSTableViewController.swift */; };
+		055A304D1BBC942B00155B54 /* Insert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A304C1BBC942B00155B54 /* Insert.swift */; };
+		055A304F1BBC945400155B54 /* SubSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A304E1BBC945400155B54 /* SubSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		055A30301BBC615E00155B54 /* MultiDataSourceTableViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiDataSourceTableViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		055A30331BBC615E00155B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		055A30351BBC615E00155B54 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		055A30371BBC615E00155B54 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		055A303A1BBC615E00155B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		055A303C1BBC615E00155B54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		055A303F1BBC615E00155B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		055A30411BBC615E00155B54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		055A30481BBC61DD00155B54 /* IATableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IATableViewController.swift; sourceTree = "<group>"; };
+		055A304A1BBC61EC00155B54 /* SSTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSTableViewController.swift; sourceTree = "<group>"; };
+		055A304C1BBC942B00155B54 /* Insert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Insert.swift; sourceTree = "<group>"; };
+		055A304E1BBC945400155B54 /* SubSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,25 @@
 		055A30321BBC615E00155B54 /* MultiDataSourceTableViews */ = {
 			isa = PBXGroup;
 			children = (
+				055A30471BBC61C300155B54 /* TableViewControllerClasses */,
 				055A30331BBC615E00155B54 /* AppDelegate.swift */,
-				055A30351BBC615E00155B54 /* FirstViewController.swift */,
-				055A30371BBC615E00155B54 /* SecondViewController.swift */,
 				055A30391BBC615E00155B54 /* Main.storyboard */,
 				055A303C1BBC615E00155B54 /* Assets.xcassets */,
 				055A303E1BBC615E00155B54 /* LaunchScreen.storyboard */,
 				055A30411BBC615E00155B54 /* Info.plist */,
+				055A304C1BBC942B00155B54 /* Insert.swift */,
+				055A304E1BBC945400155B54 /* SubSection.swift */,
 			);
 			path = MultiDataSourceTableViews;
+			sourceTree = "<group>";
+		};
+		055A30471BBC61C300155B54 /* TableViewControllerClasses */ = {
+			isa = PBXGroup;
+			children = (
+				055A30481BBC61DD00155B54 /* IATableViewController.swift */,
+				055A304A1BBC61EC00155B54 /* SSTableViewController.swift */,
+			);
+			name = TableViewControllerClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +151,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				055A30381BBC615E00155B54 /* SecondViewController.swift in Sources */,
+				055A304D1BBC942B00155B54 /* Insert.swift in Sources */,
 				055A30341BBC615E00155B54 /* AppDelegate.swift in Sources */,
-				055A30361BBC615E00155B54 /* FirstViewController.swift in Sources */,
+				055A30491BBC61DD00155B54 /* IATableViewController.swift in Sources */,
+				055A304B1BBC61EC00155B54 /* SSTableViewController.swift in Sources */,
+				055A304F1BBC945400155B54 /* SubSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
