@@ -35,7 +35,6 @@ class InsertViewController: IATableViewController {
     }
     
     override func numberOfSections(tableView: UITableView) -> Int {
-        
         return 3
     }
     
@@ -43,9 +42,12 @@ class InsertViewController: IATableViewController {
         return 9
     }
     
-    override func insertXRowsEveryYSections(tableView: UITableView, section: Int) -> (numberOfRows: Int, afterSoManyRows: Int) {
-        
-        return (numberOfRows: 1, afterSoManyRows: 3)
+    override func insertXRowsAfterYRows(tableView: UITableView, section: Int) -> (numberOfRows: Int, afterYRows: Int)? {
+        return (numberOfRows: 1, afterYRows: 3)
+    }
+    
+    override func insertXRowsEveryYRows(tableView: UITableView, section: Int) -> (numberOfRows: Int, everyYRows: Int)? {
+        return nil
     }
     
     override func dataCellForRowAtIndexPath(tableView: UITableView, cell: UITableViewCell, indexPath: NSIndexPath) -> UITableViewCell {

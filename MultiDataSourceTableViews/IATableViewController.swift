@@ -41,8 +41,14 @@ class IATableViewController: UITableViewController {
         return 0
     }
     
-    func insertXRowsEveryYSections(tableView: UITableView, section: Int) -> (numberOfRows:Int, afterSoManyRows:Int) {
-        return (numberOfRows:0, afterSoManyRows:0)
+    func insertXRowsEveryYRows(tableView: UITableView, section: Int) -> (numberOfRows:Int, everyYRows:Int)? {
+        //(numberOfRows:0, everyYRows:0)
+        return nil
+    }
+    
+    func insertXRowsAfterYRows(tableView: UITableView, section: Int) -> (numberOfRows:Int, afterYRows:Int)? {
+        //(numberOfRows:0, afterYRows:0)
+        return nil
     }
     
     internal override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -78,37 +84,55 @@ class IATableViewController: UITableViewController {
     
     private func insertion(tableView: UITableView, section: Int) {
         
-        let insertRowEvery = insertXRowsEveryYSections(tableView, section: section)
-        let insertionPoint = insertRowEvery.afterSoManyRows
-        let insertionTimes = insertRowEvery.numberOfRows
-        
-        var counter = 0
-        
-        var startArray = adapters[section]
-        var insertionArray: [cellAdapter] = []
-        
-        while !startArray.isEmpty {
+        if let insertRowEvery = insertXRowsEveryYRows(tableView, section: section) {
+            let insertionPoint = insertRowEvery.everyYRows
+            let insertionTimes = insertRowEvery.numberOfRows
             
-            if startArray.count > (insertionPoint - 1) {
+            var counter = 0
+            
+            var startArray = adapters[section]
+            var insertionArray: [cellAdapter] = []
+            
+            while !startArray.isEmpty {
                 
-                for _ in 0..<insertionPoint {
-                    insertionArray.append(startArray.removeFirst())
+                if startArray.count > (insertionPoint - 1) {
+                    
+                    for _ in 0..<insertionPoint {
+                        insertionArray.append(startArray.removeFirst())
+                    }
+                    for _ in 0..<insertionTimes {
+                        var adapter = cellAdapter()
+                        adapter.indexPath = NSIndexPath(forRow: counter, inSection: section)
+                        adapter.isDataCell = false
+                        insertionArray.append(adapter)
+                        counter += 1
+                    }
+                } else {
+                    insertionArray += startArray
+                    startArray = []
                 }
-                for _ in 0..<insertionTimes {
+            }
+            
+            adapters[section] = insertionArray
+            
+        }
+        else if let insertRowAfter = insertXRowsAfterYRows(tableView, section: section) {
+            
+            let insertionPoint = insertRowAfter.afterYRows
+            let insertionTimes = insertRowAfter.numberOfRows
+            
+            if adapters[section].count > (insertionPoint - 1) {
+                    
+                for i in 0..<insertionTimes {
+                    
                     var adapter = cellAdapter()
-                    adapter.indexPath = NSIndexPath(forRow: counter, inSection: section)
+                    adapter.indexPath = NSIndexPath(forRow: i, inSection: section)
                     adapter.isDataCell = false
-                    insertionArray.append(adapter)
-                    counter += 1
+                    adapters[section].insert(adapter, atIndex: insertionPoint)
+                    
                 }
-            } else {
-                insertionArray += startArray
-                startArray = []
             }
         }
-        
-        adapters[section] = insertionArray
-        
     }
     
     
