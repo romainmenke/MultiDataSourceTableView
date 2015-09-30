@@ -36,4 +36,4 @@ All the hard work happens behind the curtains.
     
 `func numberOfRowsInSection(tableView: UITableView, subSection: Int, section: Int) -> Int`
     
-`func cellForRowInSubSectionOfSectiontableView(tableview: UITableView, cell: UITableViewCell, section: Int, subSection: Int, row: Int) -> UITableViewCell`
+`func cellForRowInSubSectionOfSection(tableview: UITableView, cell: UITableViewCell, section: Int, subSection: Int, row: Int) -> UITableViewCell`
