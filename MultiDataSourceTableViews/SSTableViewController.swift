@@ -88,7 +88,7 @@ class SSTableViewController: UITableViewController {
         return adapters[section].count
     }
 
-    func cellForRowInSubSectionOfSectiontableView(tableview: UITableView, cell: UITableViewCell, section: Int, subSection: Int, row: Int) -> UITableViewCell {
+    func cellForRowInSubSectionOfSection(tableview: UITableView, cell: UITableViewCell, section: Int, subSection: Int, row: Int) -> UITableViewCell {
         
         // Configure the cell...
         
@@ -109,7 +109,7 @@ class SSTableViewController: UITableViewController {
         let subSection = adapter.subSection
         let row = adapter.row
         
-        return cellForRowInSubSectionOfSectiontableView(tableView, cell: cell, section: section, subSection: subSection, row: row)
+        return cellForRowInSubSectionOfSection(tableView, cell: cell, section: section, subSection: subSection, row: row)
         
     }
 }

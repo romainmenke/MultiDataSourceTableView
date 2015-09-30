@@ -42,7 +42,7 @@ class SubSectionViewController: SSTableViewController {
         return 2
     }
     
-    override func cellForRowInSubSectionOfSectiontableView(tableview: UITableView, cell: UITableViewCell, section: Int, subSection: Int, row: Int) -> UITableViewCell {
+    override func cellForRowInSubSectionOfSection(tableview: UITableView, cell: UITableViewCell, section: Int, subSection: Int, row: Int) -> UITableViewCell {
         cell.textLabel!.text = "section : \(section)   |   subsection : \(subSection)   |   row : \(row)"
         
         return cell
