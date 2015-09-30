@@ -2,7 +2,7 @@
 
 **Auto insert extra rows every x regular rows.**
 
-This allows you to have two 2D arrays as a datasource. The ViewController has two functions for fetching cells, both give you a row and section relative to their data.
+This allows you to have two 2D arrays as a datasource, or add a default cell every x rows with an add or some usefull info. The ViewController has two functions for fetching cells, both give you a row and section relative to their data.
 
 Limitation :
 Seconds source data needs to be a multiple of the first, both in regard to sections as rows.
@@ -28,6 +28,7 @@ second source cells
 **Add a subsections**
 
 Virtualy create a 3D array of rows. (speaks for itself ;) )
+All the hard work happens behind the curtains.
 
 `func numberOfSections(tableView: UITableView) -> Int`
     
